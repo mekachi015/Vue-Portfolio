@@ -1,10 +1,12 @@
+/* an import for the pictures of the skills */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 /* This is for the primary, secondary and  tetiary colours */
 :root {
     --primary-color: #E67E22;  
     --secondary-color: #C0392B; 
     --tertiary-color: #F9E79F;  
 }
-
 
 body{
     margin: 0;
