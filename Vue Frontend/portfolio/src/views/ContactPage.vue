@@ -4,17 +4,28 @@
     <div class="contact-container">
       <div class="contact-info">
         <h3>Let's Connect</h3>
-        <p>Feel free to reach out for collaborations, opportunities, or just to say hello!</p>
+        <p>
+          Feel free to reach out for collaborations, opportunities, or just to
+          say hello!
+        </p>
         <div class="contact-links">
           <a href="mailto:katlegomakoti07@gmail.com" class="contact-link">
             <i class="fas fa-envelope"></i>
             <span>Email Me</span>
           </a>
-          <a href="https://linkedin.com/in/katlego-makoti-7802a7126/" target="_blank" class="contact-link">
+          <a
+            href="https://linkedin.com/in/katlego-makoti-7802a7126/"
+            target="_blank"
+            class="contact-link"
+          >
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
           </a>
-          <a href="https://github.com/mekachi015" target="_blank" class="contact-link">
+          <a
+            href="https://github.com/mekachi015"
+            target="_blank"
+            class="contact-link"
+          >
             <i class="fab fa-github"></i>
             <span>GitHub</span>
           </a>
@@ -26,33 +37,55 @@
           <div class="form-grid">
             <div class="form-group">
               <label for="firstName">First Name</label>
-              <input type="text" id="firstName" v-model="formData.firstName" required>
+              <input
+                type="text"
+                id="firstName"
+                v-model="formData.firstName"
+                required
+              />
             </div>
 
             <div class="form-group">
               <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" v-model="formData.lastName" required>
+              <input
+                type="text"
+                id="lastName"
+                v-model="formData.lastName"
+                required
+              />
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" v-model="formData.email" required>
+              <input
+                type="email"
+                id="email"
+                v-model="formData.email"
+                required
+              />
             </div>
 
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" v-model="formData.phone" required>
+              <input type="tel" id="phone" v-model="formData.phone" required />
             </div>
 
             <div class="form-group full-width">
               <label for="query">Your Message</label>
-              <textarea id="query" v-model="formData.query" required rows="4"></textarea>
+              <textarea
+                id="query"
+                v-model="formData.query"
+                required
+                rows="4"
+              ></textarea>
             </div>
           </div>
 
           <div class="form-buttons">
             <button type="submit" class="btn-submit">Send Message</button>
-            <button type="button" class="btn-clear" @click="clearForm">Clear</button>
+            <button type="button" class="btn-clear" @click="clearForm">
+              Clear
+            </button>
           </div>
         </form>
       </div>
@@ -72,11 +105,15 @@ export default {
         email: '',
         phone: '',
         query: ''  // Added the query field here
-      }
+      },
+      errors: {},
+      loading: false,
+      successMessage: '',
+      errorMessage: ''
     };
   },
   methods: {
-    handleSubmit() {
+    /**handleSubmit() {
       // Sending form data to Formspree
       fetch("https://formspree.io/f/mnnakkdg", {
         method: "POST",
@@ -100,17 +137,60 @@ export default {
           console.error("Error:", error);
           alert("There was an error submitting the form.");
         });
-    },
-    clearForm() {
-      this.formData = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        query: ''  // Reset query field
-      };
+    }, **/
+
+  async handleSubmit() {
+    // Reset messages and errors
+    this.errors = [];
+    this.successMessage = '';
+    this.errorMessage = '';
+    this.loading = true;
+
+    try {
+      // Send data to the backend
+      const baseUrl = 'http://localhost:8080/api/v1/forms/submissions';
+      const response = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.formData),
+      });
+
+      // Parse the JSON data from the response
+      const data = await response.json();
+
+      if (response.ok) {
+        this.successMessage = "Form Submitted Successfully!";
+        this.clearForm();
+      } else {
+        // Handle validation or other errors from the backend
+        if (response.status === 400 || response.status === 409) {
+          this.errors = data;
+        } else {
+          this.errorMessage = data.error || "There was an error submitting the form.";
+        }
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error("Error:", error);
+      this.errorMessage = "There was an error submitting the form.";
+    } finally {
+      // This block always runs, regardless of success or failure
+      this.loading = false;
     }
+  },
+
+  clearForm() {
+    this.formData = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      query: '' // Reset query field
+    };
   }
+  },
 };
 </script>
 
