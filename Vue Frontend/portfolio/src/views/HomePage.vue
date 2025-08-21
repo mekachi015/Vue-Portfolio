@@ -14,7 +14,7 @@
       <!-- Social Media Links -->
       <div class="social-links">
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://linkedin.com/in/katlego-makoti-7802a7126/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
@@ -33,7 +33,7 @@
         </a>
 
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/mekachi015"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub Profile"
@@ -52,7 +52,7 @@
         </a>
         <!-- Facebook -->
         <a
-          href="https://facebook.com/yourusername"
+          href="https://www.facebook.com/sello.makoti.1/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook Profile"
@@ -72,7 +72,7 @@
 
         <!-- Instagram -->
         <a
-          href="https://instagram.com/yourusername"
+          href="https://instagram.com/mekachi_xann/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram Profile"
@@ -92,7 +92,7 @@
 
         <!-- TikTok -->
         <a
-          href="https://tiktok.com/@yourusername"
+          href="https://tiktok.com/@mekachixann"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="TikTok Profile"
