@@ -36,20 +36,20 @@
         <form @submit.prevent="handleSubmit()" class="contact-form">
           <div class="form-grid">
             <div class="form-group">
-              <label for="firstName">First Name</label>
+              <label for="first_Name">First Name</label>
               <input
                 type="text"
-                id="firstName"
+                id="first_Name"
                 v-model="formData.firstName"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="lastName">Last Name</label>
+              <label for="last_Name">Last Name</label>
               <input
                 type="text"
-                id="lastName"
+                id="last_Name"
                 v-model="formData.lastName"
                 required
               />
@@ -148,7 +148,7 @@ export default {
 
     try {
       // Send data to the backend
-      const baseUrl = 'http://localhost:8080/api/v1/forms/submissions';
+      const baseUrl = "api/form/submit";
       const response = await fetch(baseUrl, {
         method: 'POST',
         headers: {
@@ -156,6 +156,10 @@ export default {
         },
         body: JSON.stringify(this.formData),
       });
+
+      if (!response.ok ){
+        console.error("Network response was not ok", response.statusText);
+      }
 
       // Parse the JSON data from the response
       const data = await response.json();
