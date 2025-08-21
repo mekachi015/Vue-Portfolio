@@ -6,9 +6,9 @@
       <h2>Developer</h2>
 
       <div class="quotes">
-        <h3 class="personal-quote">"Vision Without Execution Is Delusion"</h3>
+        <h3 class="personal-quote">Javascript | Typescript | Java | Python | Salesforce</h3>
         <h3 class="tatto-quote">メメントモリ</h3>
-        <h3 class="tatto-quote">起 死 回 生"</h3>
+        <h3 class="tatto-quote">起 死 回 生</h3>
       </div>
 
       <!-- Social Media Links -->

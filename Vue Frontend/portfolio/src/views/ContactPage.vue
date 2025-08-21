@@ -6,7 +6,7 @@
         <h3>Let's Connect</h3>
         <p>Feel free to reach out for collaborations, opportunities, or just to say hello!</p>
         <div class="contact-links">
-          <a href="mailto:katlegomakoti07@example.com" class="contact-link">
+          <a href="mailto:katlegomakoti07@gmail.com" class="contact-link">
             <i class="fas fa-envelope"></i>
             <span>Email Me</span>
           </a>
