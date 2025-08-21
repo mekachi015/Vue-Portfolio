@@ -186,4 +186,25 @@ nav {
         background-color:red;
     }
 }
+@media (max-width: 380px) {
+    .hamburger {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    nav {
+        width: 50%;
+        right: -100%;
+        height: 100vh;
+    }
+
+    .nav-active {
+        transform: translateX(-100%);
+    }
+
+    .close.btn{
+        color: white;
+        background-color:red;
+    }
+}
 </style>
