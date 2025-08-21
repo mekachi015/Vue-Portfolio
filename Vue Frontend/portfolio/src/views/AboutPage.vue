@@ -1,88 +1,317 @@
 <template>
-  <div class="about-container interactive">
-    <h1 data-fade class="my-name">Katlego Makoti</h1>
-    <h2 data-fade class="my-occupation">Aspiring Developer</h2>
-</div>
+  <div class="about-page">
+    <div class="about-container">
+      <div class="profile-section">
+        <h1 class="title">About Me</h1>
+        <div class="divider"></div>
+        <div class="bio-content">
+          <div class="bio-text">
+            <p>
+              I am a versatile full-stack developer specializing in frontend,
+              backend, and Salesforce development, with a proven track record of
+              building maintainable and scalable web applications. I recently
+              completed an intensive full-stack learnership, gaining expertise
+              in Angular, Java 17, and PostgreSQL, complemented by formal
+              training in Salesforce administration and development. I further
+              honed these skills during a practical placement at ABSA, where I
+              contributed to a Salesforce development team. My hands-on
+              experience includes Apex programming, building Lightning Web
+              Components, and configuring platform automation tools.
+            </p>
+          </div>
+          <div class="skills-highlight">
+            <h3>Core Skills</h3>
+            <div class="skills-list">
+              <!-- Full Stack Development -->
+              <div class="skill-item" 
+                   @click="toggleSkill('fullstack')" 
+                   :class="{ active: activeSkill === 'fullstack' }">
+                <div class="skill-header">
+                  <span>Full Stack Development</span>
+                  <i class="arrow"></i>
+                </div>
+                <div class="skill-details" v-show="activeSkill === 'fullstack'">
+                  <p>Technologies:</p>
+                  <ul>
+                    <li>Vue.js, Angular, React</li>
+                    <li>Java Spring Boot, Node.js</li>
+                    <li>PostgreSQL, MongoDB</li>
+                    <li>Git, Docker, Jenkins</li>
+                  </ul>
+                </div>
+              </div>
 
-<div class="content interactive">
-    <p class="fade-in delay-0" data-fade>
-        I am Katlego Makoti, a 25-year-old full-stack development learner with a passion for both technology and sports.
-        Currently, I am immersing myself in full-stack development, building dynamic, user-centric applications. My journey
-        in IT began in high school and continued through varsity, where I gained comprehensive knowledge in programming
-        languages and frameworks.
-    </p>
-    <p class="fade-in delay-1" data-fade>
-        Originally from Limpopo, I moved to pursue opportunities that would enhance my skills and broaden my horizons. My role
-        as a full-stack learner reflects my dedication to growth in the tech field. I am excited about the Shaaper Learnership,
-        which aligns perfectly with my career goals.
-    </p>
-    <p class="fade-in delay-2" data-fade>
-        Outside of work, I'm an avid gamer and basketball player. Gaming helps me understand complex systems, while basketball
-        has taught me teamwork, strategy, and resilience, qualities I bring into my work environment.
-    </p>
-    <p class="fade-in delay-3" data-fade>
-        Balancing my technical skills with my interests, I contribute to innovative projects, collaborate with diverse teams,
-        and continuously evolve as a developer. My drive is fueled by the pursuit of excellence and a desire to make a
-        meaningful impact in tech.
-    </p>
-</div>
+              <!-- Salesforce Development -->
+              <div class="skill-item" 
+                   @click="toggleSkill('salesforce')" 
+                   :class="{ active: activeSkill === 'salesforce' }">
+                <div class="skill-header">
+                  <span>Salesforce Development</span>
+                  <i class="arrow"></i>
+                </div>
+                <div class="skill-details" v-show="activeSkill === 'salesforce'">
+                  <p>Expertise:</p>
+                  <ul>
+                    <li>Apex Programming & Testing</li>
+                    <li>Lightning Web Components (LWC)</li>
+                    <li>Salesforce Administration</li>
+                    <li>Flow Builder & Process Automation</li>
+                  </ul>
+                </div>
+              </div>
 
+              <!-- Frontend Technologies -->
+              <div class="skill-item" 
+                   @click="toggleSkill('frontend')" 
+                   :class="{ active: activeSkill === 'frontend' }">
+                <div class="skill-header">
+                  <span>Frontend Technologies</span>
+                  <i class="arrow"></i>
+                </div>
+                <div class="skill-details" v-show="activeSkill === 'frontend'">
+                  <p>Core Skills:</p>
+                  <ul>
+                    <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                    <li>Responsive & Mobile-First Design</li>
+                    <li>State Management (Vuex, Redux)</li>
+                    <li>Modern CSS (Flexbox, Grid, SASS)</li>
+                  </ul>
+                </div>
+              </div>
 
+              <!-- Backend Integration -->
+              <div class="skill-item" 
+                   @click="toggleSkill('backend')" 
+                   :class="{ active: activeSkill === 'backend' }">
+                <div class="skill-header">
+                  <span>Backend Integration</span>
+                  <i class="arrow"></i>
+                </div>
+                <div class="skill-details" v-show="activeSkill === 'backend'">
+                  <p>Specialties:</p>
+                  <ul>
+                    <li>RESTful API Development</li>
+                    <li>Database Design & Optimization</li>
+                    <li>Authentication & Authorization</li>
+                    <li>Microservices Architecture</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'AboutPage'
-    };
+export default {
+  name: 'AboutPage',
+  data() {
+    return {
+      activeSkill: null
+    }
+  },
+  methods: {
+    toggleSkill(skill) {
+      this.activeSkill = this.activeSkill === skill ? null : skill;
+    }
+  }
+}
 </script>
 
-<style>
-   .about-container.interactive {
-    text-align: center;
-    margin: 2rem 0;
-    position: relative; /* For animations */
+<style scoped>
+.about-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.my-name{
-    color: var( --tertiary-color)
+.about-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.about-container.interactive h1, .about-container.interactive h2 {
-    animation: slideIn 1s ease-out forwards;
+.profile-section {
+  padding: 3rem;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
-.content.interactive {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
+.divider {
+  height: 4px;
+  width: 60px;
+  background: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.bio-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.bio-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.skills-highlight {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.skills-highlight h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-item {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  font-weight: 500;
+}
+
+.skill-item.active .skill-header {
+  background: var(--primary-color);
+  color: white;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid currentColor;
+  transition: transform 0.3s ease;
+}
+
+.skill-item.active .arrow {
+  transform: rotate(180deg);
+}
+
+.skill-details {
+  padding: 1rem;
+  background: white;
+}
+
+.skill-details p {
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.skill-details ul {
+  list-style: none;
+  padding-left: 0.5rem;
+  margin: 0;
+}
+
+.skill-details li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.skill-details li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .bio-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .profile-section {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .bio-text p {
+    font-size: 1rem;
     line-height: 1.6;
-    color: #555;
-    position: relative; /* For animations */
+  }
+
+  .skill-header {
+    padding: 0.8rem;
+  }
+
+  .skill-details {
+    padding: 0.8rem;
+  }
 }
 
-.content.interactive p {
-    animation: fadeIn 0.5s ease forwards;
+@media (max-width: 380px) {
+  .about-page {
+    padding: 1rem;
+  }
+
+  .profile-section {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .skills-highlight {
+    padding: 1.5rem;
+  }
+
+  .skill-header {
+    font-size: 0.9rem;
+  }
+
+  .skill-details li {
+    font-size: 0.85rem;
+  }
 }
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
 </style>
