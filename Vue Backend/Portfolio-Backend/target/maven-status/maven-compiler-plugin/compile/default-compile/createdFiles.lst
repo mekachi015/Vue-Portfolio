@@ -1,0 +1,12 @@
+com\example\Portfolio_Backend\config\CORS_Config$1.class
+com\example\Portfolio_Backend\serviceImplementation\FormService.class
+com\example\Portfolio_Backend\servicesInterface\FormServiceInterface.class
+com\example\Portfolio_Backend\repository\FormRepository.class
+com\example\Portfolio_Backend\config\CORS_Config.class
+com\example\Portfolio_Backend\DTO\FormSubmissionDTO.class
+com\example\Portfolio_Backend\entity\FormSubmission.class
+com\example\Portfolio_Backend\config\mongo_config.class
+com\example\Portfolio_Backend\controller\FormController.class
+com\example\Portfolio_Backend\DTO\GlobalExceptionHandler.class
+com\example\Portfolio_Backend\config\AppConfig.class
+com\example\Portfolio_Backend\PortfolioBackendApplication.class
