@@ -1,0 +1,31 @@
+<!-- health.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Application Orchestrator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .status { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Portfolio Application Orchestrator</h1>
+        <p class="status">✅ Status: Running</p>
+        <h2>📦 Application Components:</h2>
+        <ul>
+            <li><strong>Frontend:</strong> Vue.js Application</li>
+            <li><strong>Backend:</strong> Spring Boot API</li>
+            <li><strong>Database:</strong> MongoDB</li>
+        </ul>
+        <h2>🚀 Deployment Note:</h2>
+        <p>This is a multi-container application. For full functionality, deploy using:</p>
+        <code>docker-compose up --build</code>
+        <h2>🔧 Health Endpoints:</h2>
+        <ul>
+            <li><a href="/health">/health</a> - Application health</li>
+        </ul>
+    </div>
+</body>
+</html>

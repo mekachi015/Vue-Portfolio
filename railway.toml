@@ -1,32 +1,21 @@
+# railway.toml
 [build]
-builder = "NIXPACKS"
+builder = "docker"
+dockerfilePath = "Dockerfile"
 
 [deploy]
 numReplicas = 1
 restartPolicyType = "ON_FAILURE"
+healthCheckPath = "/health"
+healthCheckTimeout = 30
 
-# Environment variables that apply to all services
-[env]
-NODE_ENV = "production"
+[service]
+name = "portfolio-orchestrator"
+type = "private"
+env = { PORT = "8080" }
 
-# Backend service configuration
-[[services]]
-name = "backend"
-sourcePath = "Vue Backend/Portfolio-Backend"
-startCommand = "java -jar target/*.jar"
-buildCommand = "./mvnw clean package -DskipTests"
-
-[services.env]
-PORT = "8080"
-MONGODB_URI = "your-mongodb-connection-string"
-
-# Frontend service configuration  
-[[services]]
-name = "frontend"
-sourcePath = "Vue Frontend/portfolio"
-startCommand = "nginx -g 'daemon off;'"
-buildCommand = "npm install && npm run build"
-
-[services.env]
-PORT = "80"
-VUE_APP_API_URL = "https://your-backend-service.up.railway.app"
+# Environment variables (you'll set these in Railway dashboard)
+[variables]
+MONGODB_URI = { required = true }
+SPRING_DATA_MONGODB_URI = { required = true }
+VUE_APP_API_URL = { required = true }

@@ -1,0 +1,8 @@
+# nixpacks.toml in your root directory
+[phases]
+setup = []
+install = []
+build = []
+
+[start]
+command = "echo 'This is a multi-service app, use docker-compose instead'"
