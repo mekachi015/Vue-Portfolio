@@ -1,19 +1,8 @@
-# .dockerignore
-.git/
+.git
 .gitignore
-node_modules/
-target/
-dist/
-.dockerignore
-docker-compose.yml
-railway.toml
 README.md
-init-mongo.js
-**/.DS_Store
-**/Thumbs.db
-**/.env
-**/.env.local
-**/.env.production
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
+node_modules
+*.log
+.DS_Store
+dist
+target

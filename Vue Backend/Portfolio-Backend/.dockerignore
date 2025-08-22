@@ -1,0 +1,5 @@
+.mvn/
+src/test/
+*.iml
+*.log
+.DS_Store
